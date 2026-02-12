@@ -1,47 +1,84 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.myapplication.ui.theme.MyApplicationTheme
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import com.example.myapplication.ConverterActivity
 
-class MainActivity : ComponentActivity() {
+
+class MainActivity: AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            MyApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+        setContentView(R.layout.activity_main)
+
+
+        setupToolbar()
+        setupCategoryCards()
+    }
+
+    private fun setupToolbar() {
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = getString(R.string.app_name)
+    }
+
+    private fun setupCategoryCards() {
+        // Length
+        findViewById<CardView>(R.id.cardLength).setOnClickListener {
+            openConverter("Length")
+        }
+
+        // Area
+        findViewById<CardView>(R.id.cardArea).setOnClickListener {
+            openConverter("Area")
+        }
+
+        // Volume
+        findViewById<CardView>(R.id.cardVolume).setOnClickListener {
+            openConverter("Volume")
+        }
+
+        // Mass
+        findViewById<CardView>(R.id.cardMass).setOnClickListener {
+            openConverter("Mass")
+        }
+
+        // Time
+        findViewById<CardView>(R.id.cardTime).setOnClickListener {
+            openConverter("Time")
+        }
+
+        // Speed
+        findViewById<CardView>(R.id.cardSpeed).setOnClickListener {
+            openConverter("Speed")
+        }
+
+        // Temperature
+        findViewById<CardView>(R.id.cardTemperature).setOnClickListener {
+            openConverter("Temperature")
+        }
+
+        // Density
+        findViewById<CardView>(R.id.cardDensity).setOnClickListener {
+            openConverter("Density")
+        }
+
+        // Energy
+        findViewById<CardView>(R.id.cardEnergy).setOnClickListener {
+            openConverter("Energy")
+        }
+
+        // Angle
+        findViewById<CardView>(R.id.cardAngle).setOnClickListener {
+            openConverter("Angle")
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyApplicationTheme {
-        Greeting("Android")
+    private fun openConverter(category: String) {
+        val intent = Intent(this, ConverterActivity::class.java)
+        intent.putExtra("CATEGORY", category)
+        startActivity(intent)
     }
 }
