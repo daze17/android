@@ -4,9 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import com.example.myapplication.ConverterActivity
-
-
 class MainActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,8 +74,19 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun openConverter(category: String) {
-        val intent = Intent(this, ConverterActivity::class.java)
-        intent.putExtra("CATEGORY", category)
-        startActivity(intent)
+        val activityClass = when (category) {
+            "Length" -> LengthConverterActivity::class.java
+            "Area" -> AreaConverterActivity::class.java
+            "Volume" -> VolumeConverterActivity::class.java
+            "Mass" -> MassConverterActivity::class.java
+            "Time" -> TimeConverterActivity::class.java
+            "Speed" -> SpeedConverterActivity::class.java
+            "Temperature" -> TemperatureConverterActivity::class.java
+            "Density" -> DensityConverterActivity::class.java
+            "Energy" -> EnergyConverterActivity::class.java
+            "Angle" -> AngleConverterActivity::class.java
+            else -> return
+        }
+        startActivity(Intent(this, activityClass))
     }
 }

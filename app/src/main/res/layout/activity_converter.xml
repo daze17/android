@@ -1,10 +1,201 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConverterActivity">
+    android:background="@color/background_dark"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp">
+        <!-- Toolbar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/length_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center_vertical"
+            app:titleTextColor="@color/primary_blue"
+            app:title="@string/length"
+            app:titleCentered="true" />
+
+        <!-- BACK BUTTON (absolute, overlays toolbar) -->
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="start|center_vertical"
+            android:contentDescription="@string/back_button"
+            android:background="@color/transparent"
+            android:padding="10dp"
+            android:src="@drawable/ic_back" />
+    </FrameLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:columnCount="2"
+        android:rowCount="5">
+        <!-- value from select field -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardLengthFrom"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1"
+                android:rowCount="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/from"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/length_array_from"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:prompt="@string/meter"
+                    android:background="@drawable/spinner_background"
+                    android:spinnerMode="dropdown"
+                    android:textColor="@android:color/white"
+                    android:popupBackground="@drawable/spinner_popup_background" />
+
+            </GridLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- value to select field -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardLengthTo"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1"
+                android:rowCount="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/from"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/length_array_to"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:prompt="@string/meter"
+                    android:background="@drawable/spinner_background"
+                    android:spinnerMode="dropdown"
+                    android:textColor="@android:color/white"
+                    android:popupBackground="@drawable/spinner_popup_background" />
+
+            </GridLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- value from input field-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardLengthFromValue"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1"
+                android:rowCount="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/lengthFromInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="@string/search_unit"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="16sp" />
+
+            </GridLayout>
+        </androidx.cardview.widget.CardView>
+        <!-- value to input field-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardLengthToValue"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1"
+                android:rowCount="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/lengthToInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="@string/search_unit"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="16sp" />
+            </GridLayout>
+        </androidx.cardview.widget.CardView>
+    </GridLayout>
+</LinearLayout>

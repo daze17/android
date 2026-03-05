@@ -102,4 +102,7 @@
     <string name="enter_value">Please enter a value</string>
     <string name="invalid_input">Invalid input</string>
     <string name="conversion_error">Conversion error</string>
+
+    <!-- Messages -->
+    <string name="back_button">back</string>
 </resources>

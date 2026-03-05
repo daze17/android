@@ -10,9 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity
-            android:name=".ConverterActivity"
-            android:exported="false" />
+        <activity android:name=".LengthConverterActivity" android:exported="false" />
+        <activity android:name=".AreaConverterActivity" android:exported="false" />
+        <activity android:name=".VolumeConverterActivity" android:exported="false" />
+        <activity android:name=".MassConverterActivity" android:exported="false" />
+        <activity android:name=".TimeConverterActivity" android:exported="false" />
+        <activity android:name=".SpeedConverterActivity" android:exported="false" />
+        <activity android:name=".TemperatureConverterActivity" android:exported="false" />
+        <activity android:name=".DensityConverterActivity" android:exported="false" />
+        <activity android:name=".EnergyConverterActivity" android:exported="false" />
+        <activity android:name=".AngleConverterActivity" android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -20,7 +27,6 @@
             android:theme="@style/MyAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
